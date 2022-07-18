@@ -1,9 +1,12 @@
+select count(*) from funcionarios;
+
 --Traga os funcionarios que trabalhem
 --no departamento de filmes OU no
 --departamento de roupas
 
 select departamento, count(*) from funcionarios
-group by departamento;
+group by departamento
+order by 2;
 
 select nome, departamento from funcionarios
 where departamento = 'Roupas' or departamento = 'Filmes';
@@ -21,7 +24,7 @@ group by departamento;
 /* 21 filmes, 52 lar */
 
 select sexo, email from funcionarios
-where sexo = 'Feminino' and (departamento = 'Lar' or departamento = 'Filmes');
+where (departamento = 'Lar' or departamento = 'Filmes') and sexo = 'Feminino';
 
 --Traga os funcionarios do sexo masculino
 --ou os funcionarios que trabalhem no setor Jardim
